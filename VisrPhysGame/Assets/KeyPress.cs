@@ -9,6 +9,7 @@ public class KeyPress : MonoBehaviour {
         if (Input.anyKey)
         {
             Debug.Log("something has been pressed");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
 	}
 }
