@@ -18,13 +18,13 @@ public class ControllerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-        if(Input.GetAxisRaw("PlayerForwardBack") < 0.3)
+        if(Input.GetAxis("PlayerForwardBack") < 0.3)
         {
             gameObject.GetComponent<PlayerMovement>().MoveForward();
             
         }
 
-        if (Input.GetAxisRaw("PlayerForwardBack") > -0.3)
+        if (Input.GetAxis("PlayerForwardBack") > -0.3)
         {
             gameObject.GetComponent<PlayerMovement>().MoveBack();
         }
@@ -39,15 +39,15 @@ public class ControllerInput : MonoBehaviour {
             gameObject.GetComponent<PlayerMovement>().TurnLeft();
         }
 
-      //  if (Input.GetAxisRaw("CameraX") > 0.3)
-      //  {
-    //        gameObject.GetComponent<PlayerMovement>().MoveCameraXRight();
-    //    }
+        if (Input.GetAxis("PlayerLeftRight") > 0.3)
+        {
+             gameObject.GetComponent<PlayerMovement>().MoveRight();
+        }
 
-    //    if (Input.GetAxisRaw("CameraX") < -0.3)
-   //     {
-   //         gameObject.GetComponent<PlayerMovement>().MoveCameraXLeft();
-  //      }
+        if (Input.GetAxis("PlayerLeftRight") < -0.3)
+        {
+            gameObject.GetComponent<PlayerMovement>().MoveLeft();
+         }
 
         if (Input.GetAxisRaw("CameraY") > 0.3)
         {
@@ -153,7 +153,9 @@ public class ControllerInput : MonoBehaviour {
                     gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, -100);
                     break;
                 case "scale":
-                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -0.1f);
+                    if (objectSelected.localScale.x >0.1f) {
+                        gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -0.1f);
+                    }
                     break;
                 default:
                     break;

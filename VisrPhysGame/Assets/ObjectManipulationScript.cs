@@ -26,17 +26,17 @@ public class ObjectManipulationScript : MonoBehaviour {
     }
     public void translateX(Transform selectedObject, float step)
     {
-        selectedObject.transform.Translate(Vector3.forward*Time.deltaTime*step);
-        
+        selectedObject.transform.Translate(Vector3.forward * Time.deltaTime * step, Space.World);
+
     }
     public void translateY(Transform selectedObject, float step)
     {
-        selectedObject.transform.Translate(Vector3.right * Time.deltaTime * step);
+        selectedObject.transform.Translate(Vector3.right * Time.deltaTime * step, Space.World);
         
     }
     public void translateZ(Transform selectedObject, float step)
     {
-        selectedObject.transform.Translate(Vector3.down * Time.deltaTime * step);
+        selectedObject.transform.Translate(Vector3.down * Time.deltaTime * step, Space.World);
         
     }
     public void scale(Transform selectedObject, float step)

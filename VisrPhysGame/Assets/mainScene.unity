@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddf601f05aa6ba49891a660c8ea4d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMode: 
 --- !u!114 &493200459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3c94050c80e894b818abae11fb7335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHead: {fileID: 1568719933}
+  playerHead: {fileID: 493200456}
   layerMask: 0
 --- !u!114 &493200460
 MonoBehaviour:
@@ -265,8 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e316551cf7d0e1841abc7f51f345425c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manipulationType: {fileID: 0}
-  manipulationAxis: {fileID: 0}
 --- !u!114 &493200461
 MonoBehaviour:
   m_ObjectHideFlags: 0

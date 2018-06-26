@@ -32,8 +32,17 @@ public class PlayerMovement : MonoBehaviour {
     {
         player.transform.position -= transform.forward * Time.deltaTime * movementSpeed;
     }
+    public void MoveRight()
+    {
+        player.transform.position += transform.right * Time.deltaTime * movementSpeed;
+    }
 
-   public void TurnLeft()
+    public void MoveLeft()
+    {
+        player.transform.position -= transform.right * Time.deltaTime * movementSpeed;
+    }
+
+    public void TurnLeft()
     {
         player.transform.Rotate(-Vector3.up * Time.deltaTime * rotateSpeed);
     }
