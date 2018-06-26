@@ -13,6 +13,7 @@ public class TextEditorScript : MonoBehaviour {
     private void Start()
     {
         manipulationAxis.text = "";
+        SourceImage = gameObject.GetComponent<Image>();
         SourceImage.sprite = translate;
     }
 
