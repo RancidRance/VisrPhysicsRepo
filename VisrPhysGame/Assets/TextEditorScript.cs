@@ -5,29 +5,30 @@ using UnityEngine.UI;
 
 public class TextEditorScript : MonoBehaviour {
 
-    public Text manipulationType;
+    public Image SourceImage;
+    public Sprite scale, rotate, translate;
     public Text manipulationAxis;
 
     // Use this for initialization
     private void Start()
     {
-        manipulationType.text = "";
         manipulationAxis.text = "";
+        SourceImage.sprite = translate;
     }
 
     public void setManipulationToRotation()
     {
-        manipulationType.text = "Manipulation Type: Rotation";
+        SourceImage.sprite = rotate;
     }
 
     public void setManipulationToTranslation()
     {
-        manipulationType.text = "Manipulation Type: Translation";
+        SourceImage.sprite = translate;
     }
 
     public void setManipulationToScaling()
     {
-        manipulationType.text = "Manipulation Type: Scaling";
+        SourceImage.sprite = scale;
     }
 
     public void setAxisToX()
