@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class RayCastGrab : MonoBehaviour {
 
-    public Camera playerHead;
+    public GameObject playerHead;
     RaycastHit hit;
-    public int layerMask = 2;
+    public int layerMask = -1;
     
-    Transform rayCastGrab()
+    public Transform rayCastGrab()
     {
-        if(Physics.Raycast(playerHead.transform.position,playerHead.transform.TransformDirection(Vector3.forward),out hit, Mathf.Infinity, layerMask))
+        
+        if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
+            print("object grabbed");
             return hit.transform;
         }
-        return null;
+        else
+        {
+            
+            print("object not grabbed");
+            return null;
+        }
+    }
+    private void Update()
+    {
+        Debug.DrawRay(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward) * 1000, Color.yellow);
     }
 }

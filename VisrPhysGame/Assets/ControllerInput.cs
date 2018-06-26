@@ -5,12 +5,15 @@ using UnityEngine;
 public class ControllerInput : MonoBehaviour {
 
 
-
-
-	// Use this for initialization
-	void Start () {
-		
-	}
+    Transform objectSelected = null;
+    List<string> mode;
+    int i = 0;
+    public string selectedMode;
+    // Use this for initialization
+    void Start () {
+        mode = new List<string> {"rotX","rotY","rotZ","tranX", "tranY", "tranZ","scale" };
+        selectedMode = mode[0];
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,7 +21,7 @@ public class ControllerInput : MonoBehaviour {
         if(Input.GetAxisRaw("PlayerForwardBack") < 0.3)
         {
             gameObject.GetComponent<PlayerMovement>().MoveForward();
-            print("Forward");
+            
         }
 
         if (Input.GetAxisRaw("PlayerForwardBack") > -0.3)
@@ -58,32 +61,104 @@ public class ControllerInput : MonoBehaviour {
 
         if (Input.GetButtonDown("Select") == true)
         {
-
+            if (objectSelected == null)
+            {
+                objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
+            }
         }
 
         if (Input.GetButtonDown("Deselect") == true)
         {
-
+            objectSelected = null;
         }
-
-        if (Input.GetButtonDown("ChangeModeForward") == true)
-        {
-
-        }
-
+        
         if (Input.GetButtonDown("ChangeModeBack") == true)
         {
-
+            if (i < 6)
+            {
+                ++i;
+            }
+            else
+            {
+                i = 0;
+            }
+            selectedMode = mode[i];
+        }
+        
+        if (Input.GetButtonDown("ChangeModeForward") == true)
+        {
+            if (i > 0)
+            {
+                --i;
+            }
+            else
+            {
+                i = 6;
+            }
+            selectedMode = mode[i];
         }
 
         if (Input.GetAxisRaw("Increase") > 0.3)
         {
+            switch (selectedMode)
+            {
+                case "rotX":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected,100);
+                    break;
+                case "rotY":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, 100);
+                    break;
+                case "rotZ":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, 100);
+                    break;
+                case "tranX":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, 100);
+                    break;
+                case "tranY":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, 100);
+                    break;
+                case "tranZ":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, 100);
+                    break;
+                case "scale":
+                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, 0.1f);
+                    break;
+                default:
+                    break;
 
+            }
+            
         }
 
         if (Input.GetAxisRaw("Decrease") > 0.3)
         {
-
+            switch (selectedMode)
+            {
+                case "rotX":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, -100);
+                    break;
+                case "rotY":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, -100);
+                    break;
+                case "rotZ":
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, -100);
+                    break;
+                case "tranX":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, -100);
+                    break;
+                case "tranY":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, -100);
+                    break;
+                case "tranZ":
+                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, -100);
+                    break;
+                case "scale":
+                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -0.1f);
+                    break;
+                default:
+                    break;
+            }
+        
         }
 
 
