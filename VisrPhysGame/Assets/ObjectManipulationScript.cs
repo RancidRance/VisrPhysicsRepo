@@ -46,4 +46,12 @@ public class ObjectManipulationScript : MonoBehaviour {
         selectedObject.transform.localScale += new Vector3(step, step, step);
         
     }
+    public void lockObjectToCamera(Transform selectedObject,GameObject playerCamera)
+    {
+        selectedObject.parent=playerCamera.transform;
+    }
+    public void unlockObjectToCamera(Transform selectedObject)
+    {
+        selectedObject.parent=null;
+    }
 }
