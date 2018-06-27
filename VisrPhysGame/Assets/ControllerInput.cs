@@ -146,79 +146,50 @@ public class ControllerInput : MonoBehaviour
 
         if (Input.GetAxisRaw("Increase") > 0.3)
         {
-            switch (selectedMode)
-            {
-                case "rotX":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, rotatePower);
-
-                    break;
-                case "rotY":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, rotatePower);
-
-                    break;
-                case "rotZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, rotatePower);
-
-                    break;
-                case "tranX":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, tranPower);
-
-                    break;
-                case "tranY":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, tranPower);
-
-                    break;
-                case "tranZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, tranPower);
-
-                    break;
-                case "scale":
-                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, scalePower);
-
-                    break;
-                default:
-                    break;
-
-            }
+            SelectedModeFunction(1);
 
         }
 
         if (Input.GetAxisRaw("Decrease") > 0.3)
         {
-            switch (selectedMode)
-            {
-                case "rotX":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, -(rotatePower));
-                    break;
-                case "rotY":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, -(rotatePower));
-                    break;
-                case "rotZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, -(rotatePower));
-                    break;
-                case "tranX":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, -(tranPower));
-                    break;
-                case "tranY":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, -(tranPower));
-                    break;
-                case "tranZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, -(tranPower));
-                    break;
-                case "scale":
-                    if (objectSelected.localScale.x > 0.1f)
-                    {
-                        gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -(scalePower));
-                    }
-                    break;
-                default:
-                    break;
-            }
+            SelectedModeFunction(-1);
         }
 
 
     }
 
+    private void SelectedModeFunction(int i)
+    {
+        switch (selectedMode)
+        {
+            case "rotX":
+                gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, i*(rotatePower));
+                break;
+            case "rotY":
+                gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, i * (rotatePower));
+                break;
+            case "rotZ":
+                gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, i * (rotatePower));
+                break;
+            case "tranX":
+                gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, i * (tranPower));
+                break;
+            case "tranY":
+                gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, i * (tranPower));
+                break;
+            case "tranZ":
+                gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, i * (tranPower));
+                break;
+            case "scale":
+                if (objectSelected.localScale.x > 0.1f||i>0)
+                {
+                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, i * (scalePower));
+                }
+                break;
+            default:
+                break;
+        }
+    }
 
     void ChangeUI()
     {
