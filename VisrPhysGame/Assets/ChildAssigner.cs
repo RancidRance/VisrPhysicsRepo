@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using VertexUnityPlayer;
 
 public class ChildAssigner : MonoBehaviour {
 
@@ -36,7 +36,7 @@ public class ChildAssigner : MonoBehaviour {
 
             foreach (GameObject allObj in allObjects)
             {
-                if (allObj.tag == "Untagged")
+                if (allObj.tag == "Untagged"&&allObj.GetComponent<NodeLink>()==true)
                 {
                        
                     allObj.tag = "SceneLinkObject";
