@@ -5,12 +5,13 @@ using UnityEngine;
 public class ControllerInput : MonoBehaviour
 {
 
-
+    public GameObject playerCamera;
     Transform objectSelected = null;
     List<string> mode;
     int i = 0;
     public string selectedMode;
     public GameObject canvasObject;
+    public bool freeMode=false;
     // Use this for initialization
     void Start()
     {
@@ -68,14 +69,27 @@ public class ControllerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Select") == true)
         {
-
+            if (freeMode==true &&objectSelected != null)
+            {
+                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                
+            }
             objectSelected = null;
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
+            if (freeMode == true && objectSelected != null)
+            {
+                gameObject.GetComponent<ObjectManipulationScript>().lockObjectToCamera(objectSelected, playerCamera);
+            }
 
         }
 
         if (Input.GetButtonDown("Deselect") == true)
         {
+            if (freeMode == true && objectSelected != null)
+            {
+                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                
+            }
             objectSelected = null;
         }
 

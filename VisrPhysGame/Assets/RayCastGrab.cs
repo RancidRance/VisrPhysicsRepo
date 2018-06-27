@@ -15,12 +15,14 @@ public class RayCastGrab : MonoBehaviour {
         
         if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            print("object grabbed");
+            if (hit.transform.tag != "RaycastIgnore")
+            {
+                print("object grabbed");
 
 
            ParentNodeLink = getParent(hit.transform.gameObject);
 
-            if (ParentNodeLink.transform.tag!="RaycastIgnore") {
+            
 
 
                
