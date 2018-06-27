@@ -12,8 +12,7 @@ public class TextEditorScript : MonoBehaviour {
     // Use this for initialization
     private void Start()
     {
-        manipulationAxis.text = "";
-        SourceImage.sprite = translate;
+      
     }
 
     public void setManipulationToRotation()
@@ -24,16 +23,19 @@ public class TextEditorScript : MonoBehaviour {
     public void setManipulationToTranslation()
     {
         SourceImage.sprite = translate;
+        print("ManipIsTran");
     }
 
     public void setManipulationToScaling()
     {
         SourceImage.sprite = scale;
+        manipulationAxis.text = "Uniform Scaling";
     }
 
     public void setAxisToX()
     {
         manipulationAxis.text = "Manipulation Axis: X";
+        print("AxisIsX");
     }
 
     public void setAxisToY()
