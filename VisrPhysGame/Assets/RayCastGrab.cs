@@ -20,14 +20,14 @@ public class RayCastGrab : MonoBehaviour {
                 print("object grabbed");
 
 
-           ParentNodeLink = getParent(hit.transform.gameObject);
+                //  ParentNodeLink = getParent(hit.transform.gameObject);
+                gameObject.GetComponent<TogglePhysics>().toggleOff(hit.transform.gameObject);
 
-            
-
+                return hit.transform;
 
                
 
-                return ParentNodeLink.transform;
+               // return ParentNodeLink.transform;
             }
         }
        

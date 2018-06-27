@@ -12,6 +12,11 @@ public class ControllerInput : MonoBehaviour
     public string selectedMode;
     public GameObject canvasObject;
     public bool freeMode=false;
+    private float nextActionTime = 0.0f;
+    public float period = 0.5f;
+    public float rotatePower;
+    public float tranPower;
+    public float scalePower;
     // Use this for initialization
     void Start()
     {
@@ -20,13 +25,18 @@ public class ControllerInput : MonoBehaviour
 
         canvasObject.GetComponentInChildren<TextEditorScript>().setManipulationToRotation();
         canvasObject.GetComponentInChildren<TextEditorScript>().setAxisToX();
+   
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetAxis("PlayerForwardBack") < 0.3)
+      
+
+
+
+            if (Input.GetAxis("PlayerForwardBack") < 0.3)
         {
             gameObject.GetComponent<PlayerMovement>().MoveForward();
 
@@ -69,8 +79,13 @@ public class ControllerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Select") == true)
         {
-            if (freeMode==true &&objectSelected != null)
+            
+
+
+            if (freeMode==true && objectSelected != null)
             {
+                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+
                 gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
                 
             }
@@ -78,6 +93,8 @@ public class ControllerInput : MonoBehaviour
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
             if (freeMode == true && objectSelected != null)
             {
+               
+
                 gameObject.GetComponent<ObjectManipulationScript>().lockObjectToCamera(objectSelected, playerCamera);
             }
 
@@ -87,6 +104,8 @@ public class ControllerInput : MonoBehaviour
         {
             if (freeMode == true && objectSelected != null)
             {
+                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+
                 gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
                 
             }
@@ -130,31 +149,31 @@ public class ControllerInput : MonoBehaviour
             switch (selectedMode)
             {
                 case "rotX":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, rotatePower);
 
                     break;
                 case "rotY":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, rotatePower);
 
                     break;
                 case "rotZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, rotatePower);
 
                     break;
                 case "tranX":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, tranPower);
 
                     break;
                 case "tranY":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, tranPower);
 
                     break;
                 case "tranZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, 100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, tranPower);
 
                     break;
                 case "scale":
-                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, 0.1f);
+                    gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, scalePower);
 
                     break;
                 default:
@@ -169,27 +188,27 @@ public class ControllerInput : MonoBehaviour
             switch (selectedMode)
             {
                 case "rotX":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, -(rotatePower));
                     break;
                 case "rotY":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, -(rotatePower));
                     break;
                 case "rotZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, -(rotatePower));
                     break;
                 case "tranX":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, -(tranPower));
                     break;
                 case "tranY":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, -(tranPower));
                     break;
                 case "tranZ":
-                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, -100);
+                    gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, -(tranPower));
                     break;
                 case "scale":
                     if (objectSelected.localScale.x > 0.1f)
                     {
-                        gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -0.1f);
+                        gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, -(scalePower));
                     }
                     break;
                 default:
