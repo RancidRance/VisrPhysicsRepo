@@ -219,7 +219,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ea735813d972b3b48ab29e9b52cfe08b,
+      objectReference: {fileID: 21300000, guid: 56ef2974a7a8c35419cd3c870f723ebf,
         type: 3}
     - target: {fileID: 212541210432529904, guid: 5cb8cfa053051074aaf6b0e3d3226385,
         type: 2}
@@ -261,6 +261,34 @@ Prefab:
     - target: {fileID: 1365871829385504, guid: 5cb8cfa053051074aaf6b0e3d3226385, type: 2}
       propertyPath: m_TagString
       value: RaycastIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412721046969178, guid: 5cb8cfa053051074aaf6b0e3d3226385, type: 2}
+      propertyPath: m_TagString
+      value: RaycastIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 212541210432529904, guid: 5cb8cfa053051074aaf6b0e3d3226385,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.99264705
+      objectReference: {fileID: 0}
+    - target: {fileID: 212541210432529904, guid: 5cb8cfa053051074aaf6b0e3d3226385,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212541210432529904, guid: 5cb8cfa053051074aaf6b0e3d3226385,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365871829385504, guid: 5cb8cfa053051074aaf6b0e3d3226385, type: 2}
+      propertyPath: m_Layer
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224427231312224562, guid: 5cb8cfa053051074aaf6b0e3d3226385,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114674794690575770, guid: 5cb8cfa053051074aaf6b0e3d3226385, type: 2}
@@ -347,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 517975359}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -10, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -456,7 +484,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 667461251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.4, z: 0}
+  m_LocalPosition: {x: 0, y: 6.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1454473778}
@@ -541,7 +569,7 @@ GameObject:
   - component: {fileID: 1108067323}
   m_Layer: 2
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: RaycastIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -606,8 +634,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1108067322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 9.36, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -12, z: 0}
+  m_LocalScale: {x: 1000, y: 5, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -726,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: -776688615, guid: b6554d3ccf491854bb7f223295f60a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneId: 9bbcf39d-8934-4089-8bca-bcb3937f490e
+  SceneId: 56784a7a-9b86-4e43-83b8-c8b6b21d716f
   ViewpointId: 
   SceneAssets: []
   PrefabBindings:

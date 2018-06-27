@@ -23,20 +23,21 @@ public class TextEditorScript : MonoBehaviour {
     public void setManipulationToTranslation()
     {
         SourceImage.sprite = translate;
-        print("ManipIsTran");
+      
     }
 
     public void setManipulationToScaling()
     {
         SourceImage.sprite = scale;
         manipulationAxis.text = "Uniform Scaling";
+        outlineText.text = "Uniform Scaling";
     }
 
     public void setAxisToX()
     {
         manipulationAxis.text = "Manipulation Axis: X";
         outlineText.text = "Manipulation Axis: X";
-        print("AxisIsX");
+  
     }
 
     public void setAxisToY()
