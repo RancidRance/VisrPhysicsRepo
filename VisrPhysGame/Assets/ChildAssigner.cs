@@ -41,10 +41,11 @@ public class ChildAssigner : MonoBehaviour {
                        
                     allObj.tag = "SceneLinkObject";
 
+                   
+                    allObj.AddComponent<BoxCollider>();
+                  
                     allObj.AddComponent<Rigidbody>();
-                    allObj.AddComponent<MeshCollider>();
-
-                    }
+                }
 
                     }
                 }
