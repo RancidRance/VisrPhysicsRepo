@@ -43,8 +43,10 @@ public class ChildAssigner : MonoBehaviour {
 
                    
                     allObj.AddComponent<MeshCollider>();
-                  
-                    allObj.AddComponent<Rigidbody>();
+                    if(!gameObject.GetComponent<exclusionList>().exclusionListCheck(allObj.GetComponent<NodeLink>().Id))
+                    {
+                        allObj.AddComponent<Rigidbody>();
+                    }
                 }
 
                     }

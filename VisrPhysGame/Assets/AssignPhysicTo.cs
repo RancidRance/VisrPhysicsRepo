@@ -11,7 +11,7 @@ public class AssignPhysicsTo : MonoBehaviour {
 	
     void givePhysicsTo(GameObject selectedObject)
     {
-       var nodeLink = selectedObject.FindNodeLink();
+       //var nodeLink = selectedObject.FindNodeLink();
     }
 
 
@@ -27,14 +27,14 @@ public class AssignPhysicsTo : MonoBehaviour {
 
     void playerIDChecker(string ID)
     {
-        if(ID == ) //== player's ID.ToString()
+        /*if(ID == ) //== player's ID.ToString()
         {
             enablePhysics();
         }
         else
         {
             disablePhysics();
-        }
+        }*/
     }
 
 
