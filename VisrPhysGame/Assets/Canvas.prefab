@@ -177,9 +177,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SourceImage: {fileID: 114492046228696780}
-  scale: {fileID: 21300000, guid: 5f885bd0b47f0844e8e223a4c3b6b720, type: 3}
-  rotate: {fileID: 21300000, guid: b62ee189fb53c8b449874268ac8a50fc, type: 3}
-  translate: {fileID: 21300000, guid: 125b351f7f1079641b6bf9ce36005a98, type: 3}
+  scale: {fileID: 21300000, guid: fc9324baa1bed9347822b98bcb1462ae, type: 3}
+  rotate: {fileID: 21300000, guid: 301c8e567c43d874ea88ffd97edb1283, type: 3}
+  translate: {fileID: 21300000, guid: ebc2bfcb24562f740bc214dda217c44d, type: 3}
   manipulationAxis: {fileID: 114314056031259556}
   outlineText: {fileID: 114413381837392030}
 --- !u!114 &114413381837392030
@@ -305,15 +305,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 633ba1d4c7c17fb45b1f71b1bb4993c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 56ef2974a7a8c35419cd3c870f723ebf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5.8, y: 5.8}
+  m_Size: {x: 4.67, y: 4.49}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!222 &222011163302348252
 CanvasRenderer:
