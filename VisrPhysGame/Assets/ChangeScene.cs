@@ -6,12 +6,13 @@ public class ChangeScene : MonoBehaviour {
 
     IEnumerator SwitchScene()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSecondsRealtime(10.0f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
 
 	// Use this for initialization
 	void Start () {
-        SwitchScene();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
+        
+        StartCoroutine(SwitchScene());
 	}
 }
