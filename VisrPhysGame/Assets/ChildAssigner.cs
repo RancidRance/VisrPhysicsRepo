@@ -39,13 +39,18 @@ public class ChildAssigner : MonoBehaviour {
                 if (allObj.tag == "Untagged"&&allObj.GetComponent<NodeLink>()==true)
                 {
                        
-                    allObj.tag = "SceneLinkObject";
+                    
 
                    
                     allObj.AddComponent<MeshCollider>();
                     if(!gameObject.GetComponent<exclusionList>().exclusionListCheck(allObj.GetComponent<NodeLink>().Id))
                     {
                         allObj.AddComponent<Rigidbody>();
+                        allObj.tag = "SceneLinkMoveableObject";
+                    }
+                    else
+                    {
+                        allObj.tag = ("SceneLinkStaticObject");
                     }
                 }
 
