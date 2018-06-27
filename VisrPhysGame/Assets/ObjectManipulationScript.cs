@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ObjectManipulationScript : MonoBehaviour {
-    
+
 
    
 
     public void rotateX(Transform selectedObject,float angle)
     {
+
         selectedObject.Rotate(Vector3.right*Time.deltaTime*angle);
        
 

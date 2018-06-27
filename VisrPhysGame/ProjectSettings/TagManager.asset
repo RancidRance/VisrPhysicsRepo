@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Fire
   - RaycastIgnore
+  - Parent
+  - Child
+  - SceneLinkObject
   layers:
   - Default
   - TransparentFX

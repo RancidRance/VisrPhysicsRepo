@@ -21,6 +21,10 @@ public class RayCastGrab : MonoBehaviour {
            ParentNodeLink = getParent(hit.transform.gameObject);
 
             if (ParentNodeLink.transform.tag!="RaycastIgnore") {
+
+
+               
+
                 return ParentNodeLink.transform;
             }
         }
