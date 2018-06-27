@@ -7,7 +7,7 @@ public class TextEditorScript : MonoBehaviour {
 
     public Image SourceImage;
     public Sprite scale, rotate, translate;
-    public Text manipulationAxis;
+    public Text manipulationAxis, outlineText;
 
     // Use this for initialization
     private void Start()
@@ -35,16 +35,19 @@ public class TextEditorScript : MonoBehaviour {
     public void setAxisToX()
     {
         manipulationAxis.text = "Manipulation Axis: X";
+        outlineText.text = "Manipulation Axis: X";
         print("AxisIsX");
     }
 
     public void setAxisToY()
     {
         manipulationAxis.text = "Manipulation Axis: Y";
+        outlineText.text = "Manipulation Axis: Y";
     }
 
     public void setAxisToZ()
     {
         manipulationAxis.text = "Manipulation Axis: Z";
+        outlineText.text = "Manipulation Axis: Z";
     }
 }
