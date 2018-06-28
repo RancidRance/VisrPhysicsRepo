@@ -147,47 +147,47 @@ public class AssignPhysicTo : MonoBehaviour {
     {
         isThereAHost = true;
     }
-    public void objectSelectRequest(Transform objectSelected)
+    public void objectSelectRequest()
     {
         if (amIHost)
         {
             //check if host is holding
-            gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+            gameObject.GetComponent<TogglePhysics>().toggleOff(gameObject.transform.gameObject);
         }
         else
         {
-            objectSelected.GetComponent<NodeLink>().Fire("objectSelectRequestRecieved", objectSelected);
+            gameObject.GetComponent<NodeLink>().Fire("objectSelectRequestRecieved", null);
             
         }
     }
 
-    public void objectSelectRequestRecieved(Transform objectSelected)
+    public void objectSelectRequestRecieved()
     {
         if (amIHost)
         {
             //check if host is holding
-            gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+            gameObject.GetComponent<TogglePhysics>().toggleOff(gameObject.transform.gameObject);
         }
     }
-    public void objectDeselectRequest(Transform objectSelected)
+    public void objectDeselectRequest()
     {
         if (amIHost)
         {
             //disable kinematics
-            gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+            gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
         }
         else
         {
-            objectSelected.GetComponent<NodeLink>().Fire("objectDeselectRequestRecieved", objectSelected);
+            gameObject.GetComponent<NodeLink>().Fire("objectDeselectRequestRecieved",null);
             //send message to host to disable kinematics 
         }
     }
-    public void objectDeselectRequestRecieved(Transform objectSelected)
+    public void objectDeselectRequestRecieved()
     {
         if (amIHost)
         {
             //disable kinematics
-            gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+            gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
         }
     }
     public void objectThrowRequest(string objNameTransform)

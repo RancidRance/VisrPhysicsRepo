@@ -99,7 +99,7 @@ public class ControllerInput : MonoBehaviour
             if(objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
-                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
+                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
             }
 
             if (freeMode==true && objectSelected != null)
@@ -118,7 +118,7 @@ public class ControllerInput : MonoBehaviour
             {
 
                 //gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
-                objectSelected.GetComponent<AssignPhysicTo>().objectSelectRequest(objectSelected);
+                objectSelected.GetComponent<AssignPhysicTo>().objectSelectRequest();
             }
 
             if (freeMode == true && objectSelected != null)
@@ -135,7 +135,7 @@ public class ControllerInput : MonoBehaviour
             if (objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
-                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
+                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
             }
             if (freeMode == true && objectSelected != null)
             {
@@ -203,7 +203,7 @@ public class ControllerInput : MonoBehaviour
             if (objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
-                gameObject.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
+               objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
                     //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
                     objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
                 }
