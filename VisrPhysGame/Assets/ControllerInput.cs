@@ -5,7 +5,7 @@ using UnityEngine;
 public class ControllerInput : MonoBehaviour
 {
 
-    public GameObject playerCamera;
+    
     Transform objectSelected = null;
     List<string> mode;
     int i = 0;
@@ -117,16 +117,19 @@ public class ControllerInput : MonoBehaviour
             {
                
 
-                gameObject.GetComponent<ObjectManipulationScript>().lockObjectToCamera(objectSelected, playerCamera);
+                gameObject.GetComponent<ObjectManipulationScript>().lockObjectToCamera(objectSelected);
             }
 
         }
 
         if (Input.GetButtonDown("Deselect") == true)
         {
-            if (freeMode == true && objectSelected != null)
+            if (objectSelected != null)
             {
                 gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+            }
+            if (freeMode == true && objectSelected != null)
+            {
 
                 gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
                 

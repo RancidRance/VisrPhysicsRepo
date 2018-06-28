@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class ObjectManipulationScript : MonoBehaviour {
 
+    private Transform selectedObjectLock=null;
+    bool followCamera=false;
+    public GameObject CameraChild;
 
    
 
@@ -46,12 +49,27 @@ public class ObjectManipulationScript : MonoBehaviour {
         selectedObject.transform.localScale += new Vector3(step, step, step);
         
     }
-    public void lockObjectToCamera(Transform selectedObject,GameObject playerCamera)
+    public void lockObjectToCamera(Transform selectedObject)
     {
-        selectedObject.parent=playerCamera.transform;
+         Vector3 position = selectedObject.position;
+         CameraChild.transform.position = position;
+        selectedObjectLock = selectedObject;
+        followCamera = true;
+
     }
     public void unlockObjectToCamera(Transform selectedObject)
     {
-        selectedObject.parent=null;
+        selectedObjectLock=null;
+        followCamera = false;
+    }
+    public float speed = 5;
+    void Update()
+    {
+        if (followCamera)
+        {
+            float step = speed * Time.deltaTime;
+            selectedObjectLock.transform.position = CameraChild.transform.position;//Vector3.MoveTowards(selectedObjectLock.transform.position, CameraChild.transform.position, step);
+            selectedObjectLock.transform.rotation = CameraChild.transform.rotation;
+        }
     }
 }
