@@ -204,8 +204,9 @@ public class ControllerInput : MonoBehaviour
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
-                    //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
-                    objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+                //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
+                //objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+                objectSelected.GetComponent<AssignPhysicTo>().objectThrowRequest();
                 }
             if (freeMode == true && objectSelected != null)
             {
