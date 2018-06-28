@@ -133,12 +133,12 @@ public class ControllerInput : MonoBehaviour
             if (objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
-                gameObject.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
+                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
             }
             if (freeMode == true && objectSelected != null)
             {
 
-                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                objectSelected.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
                 
             }
             objectSelected = null;
@@ -177,27 +177,41 @@ public class ControllerInput : MonoBehaviour
 
         if (Input.GetButtonDown("Throw") == true)
         {
-            if(objectSelected != null)
+            // if(objectSelected != null)
             {
 
-                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+             //   gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
 
-                objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-
-
+              //  objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
 
 
 
 
-                if (freeMode == true && objectSelected != null)
+
+
+               // if (freeMode == true && objectSelected != null)
                 {
                    
 
-                    gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                //    gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
 
+               // }
+                //objectSelected = null;
+            } 
+            if (objectSelected != null)
+            {
+                //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                gameObject.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
+                    //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
+                    objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
                 }
-                objectSelected = null;
+            if (freeMode == true && objectSelected != null)
+            {
+
+                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+
             }
+            objectSelected = null;
         }
 
 
