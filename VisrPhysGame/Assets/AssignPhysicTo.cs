@@ -10,10 +10,11 @@ public class AssignPhysicTo : MonoBehaviour {
 		
 	}
 	
-    void givePhysicsTo(GameObject selectedObject)
+    public void givePhysicsTo(GameObject selectedObject)
     {
         var nodeLink = selectedObject.GetComponent<NodeLink>();
 
+        //SendMessage("print", "Physics Given to: " + VertexAuthentication.Instance.AuthProvider.GetUserId());
         nodeLink.Fire("playerIDChecker", VertexAuthentication.Instance.AuthProvider.GetUserId());
     }
 
@@ -48,10 +49,11 @@ public class AssignPhysicTo : MonoBehaviour {
         }
     }
 
-    void playerIDChecker(string ID)
+    public void playerIDChecker(string ID)
     {
         if(ID == VertexAuthentication.Instance.AuthProvider.GetUserId()) //== player's ID.ToString()
         {
+            print("enable physics");
             enablePhysics();
         }
         else
