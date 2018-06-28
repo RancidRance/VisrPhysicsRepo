@@ -242,30 +242,30 @@ public class ControllerInput : MonoBehaviour
 
     }
 
-    private void SelectedModeFunction(int i,Transform objectSelected)
+    private void SelectedModeFunction(int i,Transform pObjectSelected)
     {
         switch (selectedMode)
         {
             case "rotX":
-                gameObject.GetComponent<ObjectManipulationScript>().rotateX(objectSelected, i*(rotatePower));
+                gameObject.GetComponent<ObjectManipulationScript>().rotateX(pObjectSelected, i*(rotatePower));
                 break;
             case "rotY":
-                gameObject.GetComponent<ObjectManipulationScript>().rotateY(objectSelected, i * (rotatePower));
+                gameObject.GetComponent<ObjectManipulationScript>().rotateY(pObjectSelected, i * (rotatePower));
                 break;
             case "rotZ":
-                gameObject.GetComponent<ObjectManipulationScript>().rotateZ(objectSelected, i * (rotatePower));
+                gameObject.GetComponent<ObjectManipulationScript>().rotateZ(pObjectSelected, i * (rotatePower));
                 break;
             case "tranX":
-                gameObject.GetComponent<ObjectManipulationScript>().translateX(objectSelected, i * (tranPower));
+                gameObject.GetComponent<ObjectManipulationScript>().translateX(pObjectSelected, i * (tranPower));
                 break;
             case "tranY":
-                gameObject.GetComponent<ObjectManipulationScript>().translateY(objectSelected, i * (tranPower));
+                gameObject.GetComponent<ObjectManipulationScript>().translateY(pObjectSelected, i * (tranPower));
                 break;
             case "tranZ":
-                gameObject.GetComponent<ObjectManipulationScript>().translateZ(objectSelected, i * (tranPower));
+                gameObject.GetComponent<ObjectManipulationScript>().translateZ(pObjectSelected, i * (tranPower));
                 break;
             case "scale":
-                if (objectSelected.localScale.x > 0.1f||i>0)
+                if (pObjectSelected.localScale.x > 0.1f||i>0)
                 {
                     gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, i * (scalePower));
                 }
