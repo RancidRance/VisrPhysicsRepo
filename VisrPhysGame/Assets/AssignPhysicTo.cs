@@ -217,17 +217,11 @@ public class AssignPhysicTo : MonoBehaviour {
     {
         if (amIHost)
         {
-            int bracket1 = throwVector.IndexOf("(");
-            int bracket2 = throwVector.IndexOf(")");
 
-            if (bracket1 != bracket2 && bracket1 >= 0)
-            {
-                throwVector = throwVector.Remove(bracket1);
-                throwVector = throwVector.Remove(bracket2);
-            }
+            throwVector = throwVector.Replace("(", "");
+            throwVector = throwVector.Replace(")", "");
 
-
-                string[] vector = throwVector.Split(',');
+            string[] vector = throwVector.Split(',');
          
             
 
