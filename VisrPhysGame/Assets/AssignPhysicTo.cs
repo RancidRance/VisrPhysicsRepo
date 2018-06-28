@@ -169,11 +169,18 @@ public class AssignPhysicTo : MonoBehaviour {
         }
         else
         {
-            objectSelected.GetComponent<NodeLink>().Fire("objectDeselectRequest", objectSelected);
+            objectSelected.GetComponent<NodeLink>().Fire("objectDeselectRequestRecieved", objectSelected);
             //send message to host to disable kinematics 
         }
     }
-
+    public void objectDeselectRequestRecieved(Transform objectSelected)
+    {
+        if (amIHost)
+        {
+            //disable kinematics
+            gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+        }
+    }
     public void objectThrowRequest(string objNameTransform)
     {
 

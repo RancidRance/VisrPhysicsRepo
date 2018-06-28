@@ -138,7 +138,7 @@ public class ControllerInput : MonoBehaviour
             if (freeMode == true && objectSelected != null)
             {
 
-                objectSelected.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
                 
             }
             objectSelected = null;
@@ -190,7 +190,7 @@ public class ControllerInput : MonoBehaviour
 
 
                // if (freeMode == true && objectSelected != null)
-                {
+                //{
                    
 
                 //    gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
