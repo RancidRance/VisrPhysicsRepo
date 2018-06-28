@@ -98,7 +98,8 @@ public class ControllerInput : MonoBehaviour
             
             if(objectSelected != null)
             {
-                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
             }
 
             if (freeMode==true && objectSelected != null)
@@ -115,8 +116,9 @@ public class ControllerInput : MonoBehaviour
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
             if (objectSelected != null)
             {
-                
-                gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+
+                //gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+                objectSelected.GetComponent<AssignPhysicTo>().objectSelectRequest(objectSelected);
             }
 
             if (freeMode == true && objectSelected != null)
