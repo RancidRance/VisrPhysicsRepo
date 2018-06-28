@@ -217,9 +217,22 @@ public class AssignPhysicTo : MonoBehaviour {
     {
         if (amIHost)
         {
+            int bracket1 = throwVector.IndexOf("(");
+            int bracket2 = throwVector.IndexOf(")");
+
+            if (bracket1 != bracket2 && bracket1 >= 0)
+            {
+                throwVector = throwVector.Remove(bracket1);
+                throwVector = throwVector.Remove(bracket2);
+            }
+
+
+                string[] vector = throwVector.Split(',');
+         
             
+
             gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 750);
+            gameObject.GetComponent<Rigidbody>().AddForce( new Vector3 (float.Parse(vector[0]), float.Parse(vector[1]), float.Parse(vector[2])) * 750);
         }
     }
 
