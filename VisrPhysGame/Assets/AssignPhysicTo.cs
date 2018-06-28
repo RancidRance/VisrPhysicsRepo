@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using VertexUnityPlayer;
 
-public class AssignPhysicsTo : MonoBehaviour {
+public class AssignPhysicTo : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

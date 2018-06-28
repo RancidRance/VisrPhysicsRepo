@@ -17,6 +17,7 @@ public class ControllerInput : MonoBehaviour
     public float rotatePower;
     public float tranPower;
     public float scalePower;
+    public float speed;
     // Use this for initialization
     void Start()
     {
@@ -77,20 +78,41 @@ public class ControllerInput : MonoBehaviour
             gameObject.GetComponent<PlayerMovement>().MoveCameraYDown();
         }
 
-        if (Input.GetButtonDown("Select") == true)
+        if (Input.GetButtonDown("TieObjectToCamera") == true)
         {
-            
-
-
-            if (freeMode==true && objectSelected != null)
+            if (freeMode == true && objectSelected != null)
             {
                 gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
 
                 gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
-                
+
             }
             objectSelected = null;
+
+            freeMode = !freeMode;
+        }
+
+            if (Input.GetButtonDown("Select") == true)
+        {
+            
+            if(objectSelected != null)
+            {
+                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+            }
+
+            if (freeMode==true && objectSelected != null)
+            {
+                
+
+                gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+                
+            }
+
+           
+            objectSelected = null;
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
+
+
             if (freeMode == true && objectSelected != null)
             {
                
@@ -143,8 +165,34 @@ public class ControllerInput : MonoBehaviour
 
         }
 
+        if (Input.GetButtonDown("Throw") == true)
+        {
+            if(objectSelected != null)
+            {
 
-        if (Input.GetAxisRaw("Increase") > 0.3)
+                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+
+                objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+
+
+
+
+
+
+                if (freeMode == true && objectSelected != null)
+                {
+                   
+
+                    gameObject.GetComponent<ObjectManipulationScript>().unlockObjectToCamera(objectSelected);
+
+                }
+                objectSelected = null;
+            }
+        }
+
+
+
+            if (Input.GetAxisRaw("Increase") > 0.3)
         {
             SelectedModeFunction(1);
 
@@ -154,6 +202,11 @@ public class ControllerInput : MonoBehaviour
         {
             SelectedModeFunction(-1);
         }
+
+
+
+
+
 
 
     }
@@ -190,6 +243,14 @@ public class ControllerInput : MonoBehaviour
                 break;
         }
     }
+
+
+
+
+
+
+
+
 
     void ChangeUI()
     {

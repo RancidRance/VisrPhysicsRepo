@@ -15,13 +15,20 @@ public class RayCastGrab : MonoBehaviour {
         
         if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
         {
-            if (hit.transform.tag != "RaycastIgnore")
+
+            print(hit.transform.name);
+
+            if (hit.transform.tag == "SceneLinkMoveableObject")
             {
-                print("object grabbed");
+                print("object grabbed: " + hit.transform.name);
 
 
-               //   ParentNodeLink = getParent(hit.transform.gameObject);
-                gameObject.GetComponent<TogglePhysics>().toggleOff(hit.transform.gameObject);
+
+                //   ParentNodeLink = getParent(hit.transform.gameObject);
+
+                var nodeLink = hit.transform.gameObject.GetComponent<NodeLink>();
+
+                gameObject.GetComponent<TogglePhysics>().toggleOff(nodeLink.transform.gameObject);
 
                 return hit.transform;
 
