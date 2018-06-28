@@ -10,6 +10,7 @@ public class AssignPhysicTo : MonoBehaviour {
     float myNumber;
     float nextActionTime = 0.0f;
     float period = 0.5f;
+    int i = 0;
     // Use this for initialization
     void Start () {
         
@@ -20,10 +21,10 @@ public class AssignPhysicTo : MonoBehaviour {
     {
 
         
-        HostCall();
-
+      
         if (Time.time > nextActionTime)
         {
+            HostCall();
             nextActionTime += period;
 
 
@@ -39,10 +40,13 @@ public class AssignPhysicTo : MonoBehaviour {
             {
                 isThereAHost = false;
             }
+            string sendNumber = myNumber.ToString();
+            gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
         }
-        string sendNumber = myNumber.ToString();
-        gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
+        
     }
+
+    
 
     public void AssignHostRandom()
     {
@@ -140,6 +144,7 @@ public class AssignPhysicTo : MonoBehaviour {
 
     public void HostCall()
     {
+        
         gameObject.GetComponent<NodeLink>().Fire("HostResponse", null);
     }
 
