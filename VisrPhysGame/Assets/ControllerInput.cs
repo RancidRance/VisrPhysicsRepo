@@ -281,7 +281,7 @@ public class ControllerInput : MonoBehaviour
                 gameObject.GetComponent<ObjectManipulationScript>().translateZ(pObjectSelected, i * (tranPower));
                 break;
             case "scale":
-                if (objectSelected.localScale.x > 0.1f||i>0)
+                if (objectSelected.localScale.x > 0.15f||i>0)
                 {
                     gameObject.GetComponent<ObjectManipulationScript>().scale(objectSelected, i * (scalePower));
                 }
