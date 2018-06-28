@@ -108,7 +108,10 @@ public class ControllerInput : MonoBehaviour
                 
             }
 
-           
+            objectSelected.GetComponent<AssignPhysicTo>().givePhysicsTo(objectSelected.transform.gameObject);
+            gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+
+
             objectSelected = null;
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
 
