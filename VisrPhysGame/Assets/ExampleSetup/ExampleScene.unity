@@ -651,6 +651,7 @@ MonoBehaviour:
   tranPower: 10
   scalePower: 0.1
   speed: 750
+  cameraChild: {fileID: 1507463831}
 --- !u!114 &667461254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneId: 9bbcf39d-8934-4089-8bca-bcb3937f490e
+  SceneIdSet: 0
   ViewpointId: 
   SceneAssets: []
   PrefabBindings:
