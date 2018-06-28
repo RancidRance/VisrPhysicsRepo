@@ -18,7 +18,7 @@ public class ControllerInput : MonoBehaviour
     public float tranPower;
     public float scalePower;
     public float speed;
-  
+    public GameObject cameraChild;
     // Use this for initialization
     void Start()
     {
@@ -202,15 +202,36 @@ public class ControllerInput : MonoBehaviour
 
 
 
-            if (Input.GetAxisRaw("Increase") > 0.3)
+        if (Input.GetAxisRaw("Increase") > 0.3)
         {
-            SelectedModeFunction(1);
+            if (objectSelected != null)
+            {
+                if (freeMode == true)
+                {
+                    SelectedModeFunction(1,cameraChild.transform);
+                }
+                else
+                {
+                    SelectedModeFunction(1, objectSelected);
+                }
 
+            }
         }
 
         if (Input.GetAxisRaw("Decrease") > 0.3)
         {
-            SelectedModeFunction(-1);
+            if (objectSelected != null)
+            {
+                if (freeMode == true)
+                {
+                    SelectedModeFunction(-1, cameraChild.transform);
+                }
+                else
+                {
+                    SelectedModeFunction(-1, objectSelected);
+                }
+
+            }
         }
 
 
@@ -221,7 +242,7 @@ public class ControllerInput : MonoBehaviour
 
     }
 
-    private void SelectedModeFunction(int i)
+    private void SelectedModeFunction(int i,Transform objectSelected)
     {
         switch (selectedMode)
         {
