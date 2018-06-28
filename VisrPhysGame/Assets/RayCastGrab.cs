@@ -7,13 +7,12 @@ public class RayCastGrab : MonoBehaviour {
 
     public GameObject playerHead;
     RaycastHit hit;
-    public int layerMask = -1;
     GameObject ParentNodeLink;
     
     public Transform rayCastGrab()
     {
         
-        if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, layerMask))
+        if (Physics.Raycast(playerHead.transform.position, playerHead.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
         {
 
             print(hit.transform.name);
