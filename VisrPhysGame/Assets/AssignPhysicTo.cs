@@ -19,11 +19,7 @@ public class AssignPhysicTo : MonoBehaviour {
     private void Update()
     {
 
-        if (isThereAHost == false)
-        {
-
-            AssignHostRandom();
-        }
+        
         HostCall();
 
         if (Time.time > nextActionTime)
@@ -44,14 +40,16 @@ public class AssignPhysicTo : MonoBehaviour {
                 isThereAHost = false;
             }
         }
+        string sendNumber = myNumber.ToString();
+        gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
     }
 
     public void AssignHostRandom()
     {
         amIHost = true;
         randomGen();
-        string sendNumber = myNumber.ToString();
-        gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
+        //string sendNumber = myNumber.ToString();
+        //gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
     }
 
     public void AssignHost()
