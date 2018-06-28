@@ -46,6 +46,7 @@ public class ChildAssigner : MonoBehaviour {
                     if(!gameObject.GetComponent<exclusionList>().exclusionListCheck(allObj.GetComponent<NodeLink>().Id))
                     {
                         allObj.AddComponent<Rigidbody>();
+                        allObj.GetComponent<Rigidbody>().isKinematic = true;
                         allObj.tag = "SceneLinkMoveableObject";
                     }
                     else

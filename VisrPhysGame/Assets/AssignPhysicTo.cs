@@ -5,11 +5,62 @@ using VertexUnityPlayer;
 
 public class AssignPhysicTo : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+    public bool amIHost = false;
+    bool isThereAHost = false;
+    float myNumber;
+    float nextActionTime = 0.0f;
+    float period = 0.5f;
+    // Use this for initialization
+    void Start () {
+        
+
+    }
+
+    private void Update()
+    {
+
+        if (isThereAHost == false)
+        {
+
+            AssignHostRandom();
+        }
+        HostCall();
+
+        if (Time.time > nextActionTime)
+        {
+            nextActionTime += period;
+
+
+            
+
+
+            if (isThereAHost == false)
+            {
+
+                AssignHostRandom();
+            }
+            else
+            {
+                isThereAHost = false;
+            }
+        }
+    }
+
+    public void AssignHostRandom()
+    {
+        amIHost = true;
+        randomGen();
+        string sendNumber = myNumber.ToString();
+        gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
+    }
+
+    public void AssignHost()
+    {
+
+    }
+
+
+
     public void givePhysicsTo(GameObject selectedObject)
     {
         var nodeLink = selectedObject.GetComponent<NodeLink>();
@@ -27,6 +78,7 @@ public class AssignPhysicTo : MonoBehaviour {
         {
             if (allObj.tag == "SceneLinkMoveableObject")
             {
+               
                 allObj.GetComponent<Rigidbody>().isKinematic = false;
             }
 
@@ -62,6 +114,54 @@ public class AssignPhysicTo : MonoBehaviour {
         }
     }
 
+    public void randomGen()
+    {
+        myNumber = Random.Range(0f, 1000.0f);
+    }
 
+    public void randomDecider(string number)
+    {
+        float otherPersonNumber = float.Parse(number);
+       
 
+        if(myNumber < otherPersonNumber)
+        {
+            amIHost = false;
+        }
+    }
+
+    public void HostResponse()
+    {
+        if(amIHost == true)
+        {
+            gameObject.GetComponent<NodeLink>().Fire("HostRecieve", null);
+        }
+       
+      
+    }
+
+    public void HostCall()
+    {
+        gameObject.GetComponent<NodeLink>().Fire("HostResponse", null);
+    }
+
+    public void HostRecieve()
+    {
+        isThereAHost = true;
+    }
+    public void objectSelectRequest(Transform objectSelected)
+    {
+
+    }
+    public void objectDeselectRequest(Transform objectSelected)
+    {
+        if (amIHost)
+        {
+            //disable kinematics
+        }
+        else
+        {
+            //send message to host to disable kinematics 
+        }
+    }
 }

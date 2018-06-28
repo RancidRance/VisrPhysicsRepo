@@ -18,6 +18,7 @@ public class ControllerInput : MonoBehaviour
     public float tranPower;
     public float scalePower;
     public float speed;
+  
     // Use this for initialization
     void Start()
     {
@@ -114,7 +115,7 @@ public class ControllerInput : MonoBehaviour
             objectSelected = gameObject.GetComponent<RayCastGrab>().rayCastGrab();
             if (objectSelected != null)
             {
-                objectSelected.GetComponent<AssignPhysicTo>().givePhysicsTo(objectSelected.transform.gameObject);
+                
                 gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
             }
 
@@ -131,7 +132,8 @@ public class ControllerInput : MonoBehaviour
         {
             if (objectSelected != null)
             {
-                gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                gameObject.GetComponent<AssignPhysicTo>().objectDeselectRequest(objectSelected);
             }
             if (freeMode == true && objectSelected != null)
             {
@@ -306,6 +308,14 @@ public class ControllerInput : MonoBehaviour
 
 
     }
+
+    
+
+
+
+
+
+
 }
     
 
