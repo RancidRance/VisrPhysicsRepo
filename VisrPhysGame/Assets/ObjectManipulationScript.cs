@@ -53,7 +53,10 @@ public class ObjectManipulationScript : MonoBehaviour {
     {
          Vector3 position = selectedObject.position;
          CameraChild.transform.position = position;
+        Quaternion rotation = selectedObject.rotation;
+        CameraChild.transform.rotation = rotation;
         selectedObjectLock = selectedObject;
+
         followCamera = true;
 
     }
