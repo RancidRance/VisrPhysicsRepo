@@ -195,7 +195,7 @@ public class AssignPhysicTo : MonoBehaviour {
             gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
         }
     }
-    public void objectThrowRequest()
+    public void objectThrowRequest(Transform camera)
     {
 
 
@@ -203,17 +203,17 @@ public class AssignPhysicTo : MonoBehaviour {
         {
          
             gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
-            gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * 750);
+            gameObject.GetComponent<Rigidbody>().AddForce(camera.forward * 750);
         }
         else
         {
             
-            gameObject.GetComponent<NodeLink>().Fire("objectThrowRequestRecieved", null);
+            gameObject.GetComponent<NodeLink>().Fire("objectThrowRequestRecieved", camera.forward.ToString());
            
         }
     }
 
-    public void objectThrowRequestRecieved()
+    public void objectThrowRequestRecieved(string throwVector)
     {
         if (amIHost)
         {

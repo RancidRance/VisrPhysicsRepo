@@ -19,6 +19,7 @@ public class ControllerInput : MonoBehaviour
     public float scalePower;
     public float speed;
     public GameObject cameraChild;
+    public GameObject camera;
     // Use this for initialization
     void Start()
     {
@@ -206,7 +207,7 @@ public class ControllerInput : MonoBehaviour
                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
                 //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
                 //objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
-                objectSelected.GetComponent<AssignPhysicTo>().objectThrowRequest();
+                objectSelected.GetComponent<AssignPhysicTo>().objectThrowRequest(camera.transform);
                 }
             if (freeMode == true && objectSelected != null)
             {
