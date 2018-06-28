@@ -156,8 +156,17 @@ public class AssignPhysicTo : MonoBehaviour {
         }
         else
         {
-            objectSelected.GetComponent<NodeLink>().Fire("objectDeselectRequest", objectSelected);
+            objectSelected.GetComponent<NodeLink>().Fire("objectSelectRequestRecieved", objectSelected);
             
+        }
+    }
+
+    public void objectSelectRequestRecieved(Transform objectSelected)
+    {
+        if (amIHost)
+        {
+            //check if host is holding
+            gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
         }
     }
     public void objectDeselectRequest(Transform objectSelected)
