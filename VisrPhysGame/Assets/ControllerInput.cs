@@ -119,6 +119,7 @@ public class ControllerInput : MonoBehaviour
             {
 
                 //gameObject.GetComponent<TogglePhysics>().toggleOff(objectSelected.transform.gameObject);
+                objectSelected.GetComponent<AssignPhysicTo>().beingHeld(objectSelected);
                 objectSelected.GetComponent<AssignPhysicTo>().objectSelectRequest();
             }
 
@@ -136,6 +137,7 @@ public class ControllerInput : MonoBehaviour
             if (objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
+                objectSelected.GetComponent<AssignPhysicTo>().beingDropped(objectSelected);
                 objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
             }
             if (freeMode == true && objectSelected != null)
