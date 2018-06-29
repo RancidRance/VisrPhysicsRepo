@@ -11,16 +11,17 @@ public class AssignPhysicTo : MonoBehaviour {
     float nextActionTime = 0.0f;
     float period = 0.5f;
     int i = 0;
+    GameObject gameEngine;
     // Use this for initialization
     void Start () {
-        
 
+        gameEngine = GameObject.Find("GameEngine");
     }
 
     private void Update()
     {
 
-        
+        amIHost = gameEngine.GetComponent<HostChecker>().getAmIHost();
       
         
         
@@ -50,7 +51,8 @@ public class AssignPhysicTo : MonoBehaviour {
 
     public void AssignHostRandom()
     {
-        amIHost = true;
+        //amIHost = true;
+        gameEngine.GetComponent<HostChecker>().setAmIHostTrue();
         randomGen();
         //string sendNumber = myNumber.ToString();
         //gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
@@ -128,7 +130,8 @@ public class AssignPhysicTo : MonoBehaviour {
 
         if(myNumber < otherPersonNumber)
         {
-            amIHost = false;
+            //amIHost = false;
+            gameEngine.GetComponent<HostChecker>().setAmIHostFalse();
         }
     }
 

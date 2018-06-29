@@ -9,7 +9,7 @@ public class HostChecker : MonoBehaviour {
     GameObject controlObject;
     float nextActionTime = 0.0f;
     float period = 0.5f;
-
+    public bool amIHost=false;
 
     void Start () {
 		
@@ -37,5 +37,17 @@ public class HostChecker : MonoBehaviour {
 
         }
 
+    }
+    public bool getAmIHost()
+    {
+        return amIHost;
+    }
+    public void setAmIHostFalse()
+    {
+        amIHost = false;
+    }
+    public void setAmIHostTrue()
+    {
+        amIHost = true;
     }
 }
