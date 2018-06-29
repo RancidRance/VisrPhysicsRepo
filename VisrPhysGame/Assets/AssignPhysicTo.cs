@@ -27,6 +27,35 @@ public class AssignPhysicTo : MonoBehaviour {
         
     }
 
+    public void isBeingHoldRequest()
+    {
+        gameObject.GetComponent<NodeLink>().Fire("isBeingHoldRecieve", gameObject.GetComponent<NodeLink>().Guid.ToString());
+    }
+
+    public void isBeingHoldRecieve(string objectID)
+    {
+        if(gameObject.GetComponent<NodeLink>().Guid.ToString() == objectID)
+        {
+            gameObject.GetComponent<amIHeld>().setAmIHeld(true);
+        }
+    }
+
+    public void isBeingDroppedRequest()
+    {
+        gameObject.GetComponent<NodeLink>().Fire("isBeingHoldRecieve", gameObject.GetComponent<NodeLink>().Guid.ToString());
+    }
+
+    public void isBeingDroppedRecieve(string objectID)
+    {
+        if (gameObject.GetComponent<NodeLink>().Guid.ToString() == objectID)
+        {
+            gameObject.GetComponent<amIHeld>().setAmIHeld(false);
+        }
+    }
+
+
+
+
     public void HostChecker()
     {
         HostCall();
@@ -58,10 +87,7 @@ public class AssignPhysicTo : MonoBehaviour {
         //gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
     }
 
-    public void AssignHost()
-    {
 
-    }
 
 
 
@@ -174,7 +200,10 @@ public class AssignPhysicTo : MonoBehaviour {
         if (amIHost)
         {
             //check if host is holding
+            isBeingHoldRequest();
+
             gameObject.GetComponent<TogglePhysics>().toggleOff(gameObject.transform.gameObject);
+         
         }
     }
     public void objectDeselectRequest()
@@ -194,6 +223,7 @@ public class AssignPhysicTo : MonoBehaviour {
     {
         if (amIHost)
         {
+            isBeingDroppedRequest();
             //disable kinematics
             gameObject.GetComponent<TogglePhysics>().toggleOn(gameObject.transform.gameObject);
         }
