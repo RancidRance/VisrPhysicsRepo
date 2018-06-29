@@ -22,31 +22,31 @@ public class AssignPhysicTo : MonoBehaviour {
 
         
       
-        if (Time.time > nextActionTime)
-        {
-            HostCall();
-            nextActionTime += period;
-
-
-            
-
-
-            if (isThereAHost == false)
-            {
-
-                AssignHostRandom();
-            }
-            else
-            {
-                isThereAHost = false;
-            }
-            string sendNumber = myNumber.ToString();
-            gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
-        }
+        
         
     }
 
-    
+    public void HostChecker()
+    {
+        HostCall();
+      
+
+
+
+
+
+        if (isThereAHost == false)
+        {
+
+            AssignHostRandom();
+        }
+        else
+        {
+            isThereAHost = false;
+        }
+        string sendNumber = myNumber.ToString();
+        gameObject.GetComponent<NodeLink>().Fire("randomDecider", sendNumber);
+    }
 
     public void AssignHostRandom()
     {
