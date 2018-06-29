@@ -20,6 +20,7 @@ public class ControllerInput : MonoBehaviour
     public float speed;
     public GameObject cameraChild;
     public GameObject camera;
+    public GameObject explosion;
     // Use this for initialization
     void Start()
     {
@@ -252,6 +253,29 @@ public class ControllerInput : MonoBehaviour
                 }
 
             }
+        }
+
+        if(Input.GetButtonDown("Jump") == true)
+        {
+            gameObject.GetComponent<Rigidbody>().AddForce(transform.up * 300);
+        }
+
+        if (Input.GetButtonDown("Explosion") == true)
+        {
+           
+            RaycastHit hit;
+
+            if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1 << LayerMask.NameToLayer("Default")))
+            {
+                Instantiate(explosion, hit.transform);
+            }
+            else
+            {
+                Instantiate(explosion, gameObject.transform);
+                
+            }
+
+           
         }
 
 
