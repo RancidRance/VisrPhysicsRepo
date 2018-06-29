@@ -250,6 +250,7 @@ public class AssignPhysicTo : MonoBehaviour {
     {
         if (amIHost)
         {
+            isBeingDroppedRequest();
 
             throwVector = throwVector.Replace("(", "");
             throwVector = throwVector.Replace(")", "");
