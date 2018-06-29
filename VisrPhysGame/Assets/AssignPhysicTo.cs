@@ -42,7 +42,7 @@ public class AssignPhysicTo : MonoBehaviour {
 
     public void isBeingDroppedRequest()
     {
-        gameObject.GetComponent<NodeLink>().Fire("isBeingHoldRecieve", gameObject.GetComponent<NodeLink>().Guid.ToString());
+        gameObject.GetComponent<NodeLink>().Fire("isBeingDroppedRecieve", gameObject.GetComponent<NodeLink>().Guid.ToString());
     }
 
     public void isBeingDroppedRecieve(string objectID)
