@@ -16,11 +16,12 @@ public class glowWhenSelected : MonoBehaviour {
                     if (child.name == "Primitive")
                     {
                         Renderer rend = child.GetComponent<Renderer>();
-                        //Set the main Color of the Material to green
-                         rend.material.shader = Shader.Find("_EmissionColor");
-
+                    //Set the main Color of the Material to green
+                    //rend.material.shader = Shader.Find("_EmissionColor");
+                    rend.material.EnableKeyword("_EmissionColor");
                         rend.material.SetColor("_EmissionColor", Color.blue);
-                    }
+                    
+                }
 
                 }
             }

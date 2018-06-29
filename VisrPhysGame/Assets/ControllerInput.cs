@@ -124,7 +124,7 @@ public class ControllerInput : MonoBehaviour
                 objectSelected.GetComponent<AssignPhysicTo>().objectSelectRequest();
             }
 
-            if (freeMode == true && objectSelected != null)
+            if (freeMode == true && objectSelected != null )
             {
                
 
