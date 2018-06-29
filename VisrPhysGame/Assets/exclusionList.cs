@@ -10,7 +10,13 @@ public class exclusionList : MonoBehaviour {
     "3a2c3ded-7734-4bfc-9b64-c62427ffbd9a",
     "a97f13ad-852a-491c-8280-b6b657521916",
     "404987d5-0b6e-4ad5-9310-3ac57253a3eb",
-    "a7ed5faf-dcb8-44fa-967c-99911da1bef0"};
+    "a7ed5faf-dcb8-44fa-967c-99911da1bef0",
+    "c73f98f8-523a-46dc-b9eb-e15c8db126ac",
+    "44f6849a-0b26-4c26-8804-158af53127bf",
+    "dbaa94c7-addd-434e-a535-817d81cc0f98",
+    "a97f13ad-852a-491c-8280-b6b657521916",
+    "3a2c3ded-7734-4bfc-9b64-c62427ffbd9a"
+    };
 	public bool exclusionListCheck(string ID)
     {
         if (pExclusionList.Contains(ID))
