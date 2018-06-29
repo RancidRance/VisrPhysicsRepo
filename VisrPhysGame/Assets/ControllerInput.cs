@@ -207,7 +207,8 @@ public class ControllerInput : MonoBehaviour
             if (objectSelected != null)
             {
                 //gameObject.GetComponent<TogglePhysics>().toggleOn(objectSelected.transform.gameObject);
-               objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
+                objectSelected.GetComponent<AssignPhysicTo>().isBeingDroppedRequest();
+                objectSelected.GetComponent<AssignPhysicTo>().objectDeselectRequest();
                 //gameObject.GetComponent<AssignPhysicTo>().objectThrowRequest((objectSelected.name+","+transform.forward.ToString()));
                 //objectSelected.GetComponent<Rigidbody>().AddForce(transform.forward * speed);
                 objectSelected.GetComponent<AssignPhysicTo>().objectThrowRequest(camera.transform);
