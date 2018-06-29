@@ -28,7 +28,7 @@ public class AssignPlayerAvatars : MonoBehaviour {
             Transform[] children = viewPoints.GetComponentsInChildren<Transform>();
             foreach (Transform child in children)
             {
-                if (child.transform.childCount < 1 && child.name != "TempAvatar(Clone)")
+                if (child.transform.childCount < 1 && child.name != "TempAvatar(Clone)"&&child.name != "Viewpoints")
                 {
                     Instantiate(PlayerAvatar, child.transform);
                 }
