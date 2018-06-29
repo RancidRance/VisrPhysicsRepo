@@ -11,18 +11,18 @@ public class ChildAssigner : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
-        
+
 
 
 
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
 
 
 
@@ -36,14 +36,14 @@ public class ChildAssigner : MonoBehaviour {
 
             foreach (GameObject allObj in allObjects)
             {
-                if (allObj.tag == "Untagged"&&allObj.GetComponent<NodeLink>()==true)
+                if (allObj.tag == "Untagged" && allObj.GetComponent<NodeLink>() == true)
                 {
-                       
-                    
 
-                   
+
+
+
                     allObj.AddComponent<MeshCollider>();
-                    if(!gameObject.GetComponent<exclusionList>().exclusionListCheck(allObj.GetComponent<NodeLink>().Id))
+                    if (!gameObject.GetComponent<exclusionList>().exclusionListCheck(allObj.GetComponent<NodeLink>().Id))
                     {
                         allObj.AddComponent<Rigidbody>();
                         allObj.GetComponent<Rigidbody>().isKinematic = true;
@@ -55,12 +55,32 @@ public class ChildAssigner : MonoBehaviour {
                     }
                 }
 
-                    }
+            }
+        }
+
+        GameObject[] moveableObjects = GameObject.FindGameObjectsWithTag("SceneLinkMoveableObject");
+        if (gameObject.GetComponent<HostChecker>().getAmIHost()==true) {
+            foreach (GameObject objects in moveableObjects)
+            {
+                if (objects.GetComponent<amIHeld>().getAmIHeld()==false) {
+                    objects.GetComponent<Rigidbody>().isKinematic = false;
                 }
             }
-
-
-
         }
+        else
+        {
+            foreach (GameObject objects in moveableObjects)
+            {
+                objects.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+    }
+
+    
+
+
+
+
+}
 
 
