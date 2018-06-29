@@ -64,6 +64,7 @@ public class ChildAssigner : MonoBehaviour {
             {
                 if (objects.GetComponent<amIHeld>().getAmIHeld()==false) {
                     objects.GetComponent<Rigidbody>().isKinematic = false;
+                    objects.GetComponent<Rigidbody>().useGravity = true;
                 }
             }
         }
@@ -72,6 +73,7 @@ public class ChildAssigner : MonoBehaviour {
             foreach (GameObject objects in moveableObjects)
             {
                 objects.GetComponent<Rigidbody>().isKinematic = true;
+                objects.GetComponent<Rigidbody>().useGravity = false;
             }
         }
     }

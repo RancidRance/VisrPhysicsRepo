@@ -6,7 +6,7 @@ using VertexUnityPlayer;
 public class AssignPhysicTo : MonoBehaviour {
 
     public bool amIHost = false;
-    bool isThereAHost = false;
+    bool isThereAHost = true;
     float myNumber;
     float nextActionTime = 0.0f;
     float period = 0.5f;
